@@ -1,0 +1,15 @@
+http://:8080 {
+	root * /tmp/perm/www/{host}
+
+	@notget not method GET
+
+	route @notget {
+		basic_auth {
+			admin {$WEBDAV_PASSWORD_HASH}
+		}
+		webdav {
+			make_dirs true
+		}
+	}
+	file_server
+}

@@ -1,0 +1,56 @@
+{
+    "Hostname": "photon",
+    "Update": {
+        "HTTPPassword": "lbMnG8rg1Trf7TZALwG2"
+    },
+    "Environment": [
+        "GOOS=linux",
+        "GOARCH=arm64"
+    ],
+    "Packages": [
+        "github.com/gokrazy/wifi",
+        "github.com/cloudflare/cloudflared/cmd/cloudflared",
+        "github.com/gokrazy/mkfs",
+        "../webserver",
+        "../photon"
+    ],
+    "PackageConfig": {
+        "github.com/caddyserver/caddy/v2/cmd/caddy": {
+            "ExtraFilePaths": {
+                "/etc/caddy/Caddyfile": "webserver/Caddyfile"
+            },
+            "CommandLineFlags": [
+                "run",
+                "--config",
+                "/etc/caddy/Caddyfile"
+            ],
+            "Environment": [
+                // CHANGEME: Add an admin password hash after `=`, run `caddy hash-password` on your machine to create it
+                "WEBDAV_PASSWORD_HASH="
+            ]
+        },
+        "github.com/cloudflare/cloudflared/cmd/cloudflared": {
+            "ExtraFilePaths": {
+                "/etc/cloudflared/config.yaml": "cloudflared/config.yaml"
+            },
+            "CommandLineFlags": [
+                "tunnel",
+                "--config",
+                "/etc/cloudflared/config.yaml",
+                "run"
+            ]
+        },
+        "github.com/gokrazy/gokrazy/cmd/randomd": {
+            "ExtraFilePaths": {
+                "/etc/machine-id": "machine-id"
+            }
+        },
+        "github.com/gokrazy/wifi": {
+            "ExtraFilePaths": {
+                "/etc/wifi.json": "wifi.json"
+            }
+        }
+    },
+    "SerialConsole": "disabled",
+    "InternalCompatibilityFlags": {}
+}

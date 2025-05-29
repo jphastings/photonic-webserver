@@ -1,0 +1,5 @@
+/builddir
+/cloudflared/config.yaml
+/wifi.json
+/machine-id
+/photon/measurements.db

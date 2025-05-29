@@ -1,0 +1,5 @@
+url: http://127.0.0.1:8080
+tunnel: <your tunnel uuid>
+token: <your.cloudflared.token>
+no-autoupdate: true
+proxy-dns: false

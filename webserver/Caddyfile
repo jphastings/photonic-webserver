@@ -1,5 +1,5 @@
 http://:8080 {
-	root * /tmp/perm/www/{host}
+	root * /perm/www/{host}
 
 	@notget not method GET
 

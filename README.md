@@ -60,12 +60,14 @@ cp cloudflared/config.yaml.example cloudflared/config.yaml
 # Edit cloudflared/config.yaml with the details from Cloudflare
 ```
 
+Change the password to access this GoKrazy instance, in the `"HTTPPassword": "<here>"` section near the top.
+
 Create and add a password for updating your site(s):
 
 ```bash
 brew install caddy
 caddy hash-password
-# Enter your password (twice) and copy the `$2a$lots-of-characters.y` into config.json after `WEBDAV_PASSWORD_HASH=`
+# Enter your password (twice) and copy the `$2a$lots.of.characters.y` into config.json after `WEBDAV_PASSWORD_HASH=`
 ```
 
 Insert a microSD card into your system, [find its device name](https://gokrazy.org/quickstart/#step-1-insert-an-sd-card) and write this project to it with the following, where `/dev/sdx` is the device name of your microSD card:

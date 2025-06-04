@@ -13,7 +13,7 @@ func main() {
 	}
 	ph.ShutdownOnTerminate()
 
-	if err := ph.Track(30 * time.Second); err != nil {
+	if err := ph.Track(2 * time.Minute); err != nil {
 		panic(err)
 	}
 }

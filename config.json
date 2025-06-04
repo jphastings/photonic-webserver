@@ -1,7 +1,7 @@
 {
     "Hostname": "photon",
     "Update": {
-        "HTTPPassword": "lbMnG8rg1Trf7TZALwG2"
+        "HTTPPassword": ""
     },
     "Environment": [
         "GOOS=linux",
@@ -25,7 +25,6 @@
                 "/etc/caddy/Caddyfile"
             ],
             "Environment": [
-                // CHANGEME: Add an admin password hash after `=`, run `caddy hash-password` on your machine to create it
                 "WEBDAV_PASSWORD_HASH="
             ]
         },
